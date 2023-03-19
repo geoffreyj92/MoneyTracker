@@ -1,21 +1,38 @@
 package com.example.Money.Track.budget;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jdk.jfr.Enabled;
 
+
 import java.time.LocalDate;
-@Entity
+
+import static jakarta.persistence.GenerationType.SEQUENCE;
+
+@Entity(name = "budget")
 public class Budget {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "budget_sequence",
+            sequenceName = "budget_sequence",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy= SEQUENCE,
+            generator = "budget_sequence")
+
+    @Column(name = "id", updatable = false)
     private Long id;
+
+    @Column(name = "budgetName", nullable = false, columnDefinition = "TEXT")
     private String budgetName;
+
+    @Column(name = "amount", nullable = false)
     private Double amount;
+
+    @Column(name = "startDate", nullable = false)
     private LocalDate startDate;
+
+    @Column(name = "endDate", nullable = false)
     private LocalDate endDate;
 
     protected Budget() {
