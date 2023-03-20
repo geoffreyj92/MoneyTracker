@@ -32,4 +32,9 @@ public class BudgetController {
     public void newBudget(@RequestBody Budget budget) {
         budgetService.newBudget(budget);
     }
+
+    //add update by id method
+
+
+    //search by date range
 }

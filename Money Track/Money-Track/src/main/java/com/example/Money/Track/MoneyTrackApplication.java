@@ -37,7 +37,7 @@ public class MoneyTrackApplication {
 			Budget budget5 = new Budget("March", 500.00, LocalDate.now(), LocalDate.of(2023, Month.OCTOBER, 25));
 
 			log.info("Exercises saved {} to the database");
-			
+
 			repository.saveAll(List.of(budget, budget1, budget2, budget3, budget4, budget5));
 		};
 	}
