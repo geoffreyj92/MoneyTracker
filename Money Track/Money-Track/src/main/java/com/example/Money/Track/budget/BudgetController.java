@@ -1,10 +1,7 @@
 package com.example.Money.Track.budget;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,5 +26,10 @@ public class BudgetController {
     @GetMapping("/{id}")
     public Optional<Budget> getBudgetById(@PathVariable(name = "id") Long id) {
         return budgetService.getBudgetById(id);
+    }
+
+    @PostMapping("/")
+    public void newBudget(@RequestBody Budget budget) {
+        budgetService.newBudget(budget);
     }
 }

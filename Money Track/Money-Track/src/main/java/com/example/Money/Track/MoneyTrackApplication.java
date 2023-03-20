@@ -2,6 +2,7 @@ package com.example.Money.Track;
 
 import com.example.Money.Track.budget.Budget;
 import com.example.Money.Track.budget.BudgetRepository;
+import com.example.Money.Track.budget.BudgetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -35,6 +36,8 @@ public class MoneyTrackApplication {
 			Budget budget4 = new Budget("March", 500.00, LocalDate.now(), LocalDate.of(2023, Month.SEPTEMBER, 2));
 			Budget budget5 = new Budget("March", 500.00, LocalDate.now(), LocalDate.of(2023, Month.OCTOBER, 25));
 
+			log.info("Exercises saved {} to the database");
+			
 			repository.saveAll(List.of(budget, budget1, budget2, budget3, budget4, budget5));
 		};
 	}
