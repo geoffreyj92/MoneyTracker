@@ -1,8 +1,10 @@
 package com.example.Money.Track.budget;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +36,20 @@ public class BudgetController {
     }
 
     //add update by id method
+    @PutMapping("/{id}")
+    public boolean updateBudget(@RequestBody Budget budget, @PathVariable Long id) {
+        boolean updated = true;
+
+        if (updated) {
+
+            budgetService.updateBudget(budget, id);
+            return true;
+        }
+
+        return false;
+
+
+    }
 
 
     //search by date range

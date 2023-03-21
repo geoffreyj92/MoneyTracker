@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.naming.InsufficientResourcesException;
+import javax.swing.text.html.Option;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -45,5 +46,19 @@ public class BudgetService {
 //            throw new RuntimeException("Amount must be greater than 0");
 //        }
 
+    }
+
+    public Budget updateBudget(Budget budget, Long id) {
+
+        if (budgetRepository.findById(id).isPresent()) {
+            budget.setBudgetName(budget.getBudgetName());
+            budget.setAmount(budget.getAmount());
+            budget.setStartDate(budget.getStartDate());
+            budget.setEndDate(budget.getEndDate());
+        } else {
+            throw new RuntimeException("This id does not exist");
+        }
+
+         return budgetRepository.save(budget);
     }
 }

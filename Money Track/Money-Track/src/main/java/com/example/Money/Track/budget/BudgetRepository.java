@@ -10,8 +10,9 @@ import java.util.Optional;
 @Repository
 public interface BudgetRepository extends JpaRepository<Budget, Long> {
 
-    @Query("SELECT s FROM budget s WHERE s.budgetName = ?1")
+    @Query("SELECT b FROM budget b WHERE b.budgetName = ?1")
     Optional<Budget> findBudgetByName(String name);
+
 
     //create query for searching by date
 
