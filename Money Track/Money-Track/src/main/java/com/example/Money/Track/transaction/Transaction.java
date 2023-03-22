@@ -19,16 +19,16 @@ public class Transaction {
             strategy= SEQUENCE,
             generator = "transaction_sequence")
     private Long id;
-    private String type;
+    private String category;
     private Double amount;
     private LocalDate date;
 
     public Transaction() {
     }
 
-    public Transaction(Long id, String type, Double amount, LocalDate date) {
+    public Transaction(Long id, String category, Double amount, LocalDate date) {
         this.id = id;
-        this.type = type;
+        this.category = category;
         this.amount = amount;
         this.date = date;
     }
@@ -41,12 +41,12 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getCategory() {
+        return category;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Double getAmount() {
@@ -69,7 +69,7 @@ public class Transaction {
     public String toString() {
         return "Transaction{" +
                 "id=" + id +
-                ", type='" + type + '\'' +
+                ", type='" + category + '\'' +
                 ", amount=" + amount +
                 ", date=" + date +
                 '}';
