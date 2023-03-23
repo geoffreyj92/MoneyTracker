@@ -2,6 +2,8 @@ package com.example.Money.Track.transaction;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
+import jdk.jfr.Category;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 
@@ -19,14 +21,20 @@ public class Transaction {
             strategy= SEQUENCE,
             generator = "transaction_sequence")
     private Long id;
-    private String category;
+
+    @Column(name = "amount", nullable = false)
     private Double amount;
+
+    @Column(name = "date", nullable = false)
     private LocalDate date;
+
+    @Enumerated(EnumType.STRING)
+    private Category category;
 
     public Transaction() {
     }
 
-    public Transaction(Long id, String category, Double amount, LocalDate date) {
+    public Transaction(Long id, Category category, Double amount, LocalDate date) {
         this.id = id;
         this.category = category;
         this.amount = amount;
@@ -41,11 +49,11 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
