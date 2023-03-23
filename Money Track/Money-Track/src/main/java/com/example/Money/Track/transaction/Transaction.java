@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
-@Entity
+@Entity(name = "transaction")
 public class Transaction {
 
     @Id
@@ -29,12 +29,14 @@ public class Transaction {
     private LocalDate date;
 
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private category category;
+
+    //Add foreign key constraint for budget id with a many to one relation
 
     public Transaction() {
     }
 
-    public Transaction(Long id, Category category, Double amount, LocalDate date) {
+    public Transaction(Long id, category category, Double amount, LocalDate date) {
         this.id = id;
         this.category = category;
         this.amount = amount;
@@ -49,11 +51,11 @@ public class Transaction {
         this.id = id;
     }
 
-    public Category getCategory() {
+    public category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(category category) {
         this.category = category;
     }
 

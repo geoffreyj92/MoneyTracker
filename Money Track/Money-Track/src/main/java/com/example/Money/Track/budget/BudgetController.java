@@ -35,7 +35,7 @@ public class BudgetController {
         budgetService.newBudget(budget);
     }
 
-    //add update by id method
+
     @PutMapping("/{id}")
     public boolean updateBudget(@RequestBody Budget budget, @PathVariable Long id) {
         boolean updated = true;

@@ -2,6 +2,7 @@ package com.example.Money.Track.transaction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.ResourceAccessException;
 
@@ -15,6 +16,7 @@ public class TransactionService {
 
     private final TransactionRepository repository;
 
+    @Autowired
     public TransactionService(TransactionRepository repository) {
         this.repository = repository;
     }

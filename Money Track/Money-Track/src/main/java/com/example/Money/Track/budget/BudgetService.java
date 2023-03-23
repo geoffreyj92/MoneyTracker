@@ -39,6 +39,8 @@ public class BudgetService {
         }
          return budgetRepository.saveAndFlush(budget);
 
+        //Add relation for adding transactions to budgets
+
 
 //        if (amount >= 0) {
 //            budget.setAmount(amount);
